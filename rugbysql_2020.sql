@@ -3,18 +3,17 @@
 --     rugby_2020.sql - Create data objects for INFO20003 2020 S1 Assignment 2 schema
 --
 --    DESCRIPTION
---      This creates a rugby match schedule and result schema 
---      
+--      This creates a rugby match schedule and result schema
+--
 
 
---------------------------------
--- uncomment this section if installing on BYOD device
--- DROP SCHEMA IF EXISTS rugby;
--- CREATE SCHEMA rugby;
--- USE rugby;
+# uncomment this section if installing on BYOD device
+DROP SCHEMA IF EXISTS rugby;
+CREATE SCHEMA rugby;
+USE rugby;
 -- end uncomment
---------------------------------
--- Server version	8.0.15
+# ------------------------------
+# Server version	8.0.15
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -266,6 +265,6 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Just in case commit all changes 
+-- Just in case commit all changes
 COMMIT;
--- 
+--
