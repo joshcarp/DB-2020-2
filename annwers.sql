@@ -47,3 +47,21 @@ GROUP BY PlayerID, CompetitionType
 )
 
 -- Q4
+-- 2 rows
+SELECT SeasonYear, COUNT(SeasonYear)
+FROM game
+NATURAL JOIN season
+WHERE T1Score is NULL AND T2Score is NULL
+GROUP BY SeasonYear
+
+-- Q5
+-- 4 rows
+SELECT ClubName, SUM(Sex LIKE 'M') as Males, SUM(Sex LIKE 'F')as Females , ABS(SUM(Sex LIKE 'M') - SUM(Sex LIKE 'F')) as Difference
+FROM club
+NATURAL JOIN clubplayer
+NATURAL JOIN player
+WHERE clubplayer.FromDate < CURDATE() && (clubplayer.ToDate IS NULL || clubplayer.ToDate > CURDATE())
+GROUP BY ClubName
+HAVING SUM(Sex LIKE 'M') != SUM(Sex LIKE 'F')
+ORDER BY Difference DESC
+
