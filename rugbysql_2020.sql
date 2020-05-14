@@ -69,7 +69,7 @@ CREATE TABLE clubplayer (
   PRIMARY KEY (ClubID,PlayerID,FromDate),
   KEY fk_ClubPlayer_Player1_idx (PlayerID),
   CONSTRAINT fk_ClubPlayer_Club1 FOREIGN KEY (ClubID) REFERENCES club (ClubID),
-  CONSTRAINT fk_ClubPlayer_Player1 FOREIGN KEY (PlayerID) REFERENCES player (playerid)
+  CONSTRAINT fk_ClubPlayer_Player1 FOREIGN KEY (PlayerID) REFERENCES player (PlayerID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -129,9 +129,9 @@ CREATE TABLE game (
   KEY fk_Game_Season1_idx (SeasonID),
   KEY fk_Game_Team1_idx (Team1),
   KEY fk_Game_Team2_idx (Team2),
-  CONSTRAINT fk_Game_Season1 FOREIGN KEY (SeasonID) REFERENCES season (seasonid),
-  CONSTRAINT fk_Game_Team1 FOREIGN KEY (Team1) REFERENCES team (teamid),
-  CONSTRAINT fk_Game_Team2 FOREIGN KEY (Team2) REFERENCES team (teamid)
+  CONSTRAINT fk_Game_Season1 FOREIGN KEY (SeasonID) REFERENCES season (SeasonID),
+  CONSTRAINT fk_Game_Team1 FOREIGN KEY (Team1) REFERENCES team (TeamID),
+  CONSTRAINT fk_Game_Team2 FOREIGN KEY (Team2) REFERENCES team (TeamID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -187,7 +187,7 @@ CREATE TABLE playerteam (
   KEY fk_PlayerTeam_Game1_idx (GameID),
   CONSTRAINT fk_PlayerTeam_Game1 FOREIGN KEY (GameID) REFERENCES game (GameID),
   CONSTRAINT fk_PlayerTeam_Player1 FOREIGN KEY (PlayerID) REFERENCES player (PlayerID),
-  CONSTRAINT fk_PlayerTeam_Team1 FOREIGN KEY (TeamID) REFERENCES team (teamid)
+  CONSTRAINT fk_PlayerTeam_Team1 FOREIGN KEY (TeamID) REFERENCES team (TeamID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

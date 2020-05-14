@@ -6,7 +6,7 @@ import (
     "github.com/jmoiron/sqlx"
     "log"
 )
-
+//go:generate sqlboiler --wipe mysql
 func main() {
     fmt.Println("----------")
     defer fmt.Println("----------")
