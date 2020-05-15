@@ -76,3 +76,22 @@ NATURAL JOIN season
 GROUP BY FirstName, LastName, SEX
 HAVING SUM(SeasonYear LIKE 2018) < SUM(SeasonYear LIKE 2017)
 
+-- Q7
+-- 5 rows
+SELECT TeamName,
+SUM(CASE
+	WHEN Team1 = TeamID THEN T1Score
+	WHEN Team2 = TeamID THEN T2Score
+END) AS SCORE
+
+FROM competition
+NATURAL JOIN season
+NATURAL JOIN game
+INNER JOIN team
+ON game.Team1 = team.TeamID OR game.Team2 = team.TeamID
+WHERE CompetitionName LIKE "Bingham Trophy"
+AND SeasonYear = 2017
+GROUP BY TeamName
+HAVING SCORE > 100
+ORDER BY SCORE DESC
+
