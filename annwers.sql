@@ -62,6 +62,17 @@ NATURAL JOIN clubplayer
 NATURAL JOIN player
 WHERE clubplayer.FromDate < CURDATE() && (clubplayer.ToDate IS NULL || clubplayer.ToDate > CURDATE())
 GROUP BY ClubName
-HAVING SUM(Sex LIKE 'M') != SUM(Sex LIKE 'F')
+HAVING Males != Females
 ORDER BY Difference DESC
+
+
+-- Q6--
+-- 50 rows
+SELECT FirstName, LastName, SEX
+FROM player
+NATURAL JOIN playerteam
+NATURAL JOIN game
+NATURAL JOIN season
+GROUP BY FirstName, LastName, SEX
+HAVING SUM(SeasonYear LIKE 2018) < SUM(SeasonYear LIKE 2017)
 
