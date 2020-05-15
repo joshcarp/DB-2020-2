@@ -107,3 +107,18 @@ AND ToDate is NULL
 GROUP BY FirstName, LastName, FromDate
 ORDER BY Duration ASC
 LIMIT 1
+
+-- Q9
+-- 20 rows, arthus top with 32
+SELECT FirstName, LastName, COUNT(*) AS NumberOfForeign
+FROM player
+NATURAL JOIN playerteam
+NATURAL JOIN clubplayer
+JOIN team
+ON playerteam.TeamID = team.TeamID
+JOIN club
+ON club.ClubID = clubplayer.ClubID
+WHERE team.ClubID != club.ClubID
+GROUP BY FirstName, LastName
+ORDER BY NumberOfForeign DESC
+LIMIT 20
