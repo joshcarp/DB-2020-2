@@ -1,9 +1,8 @@
 -- Q1
--- 142 rows, 3 columns
--- target: 143 rows
+-- 143 rows, 3 columns
 SELECT FirstName, LastName, ClubName
 FROM player
-INNER JOIN playerteam -- Different for inner vs left
+LEFT JOIN playerteam -- Different for inner vs left
 ON player.playerID = playerteam.playerID
 INNER JOIN clubplayer
 ON player.playerID = clubplayer.playerID
@@ -15,7 +14,7 @@ ORDER BY FirstName, LastName ASC
 
 -- Q2
 -- 73 rows, 1 column
-SELECT  CONCAT(FIRSTNAME," ", LASTNAME)
+SELECT  CONCAT(FIRSTNAME," ", LASTNAME) As Name
 FROM player
 INNER JOIN playerteam -- Different for inner vs left
 ON player.playerID = playerteam.playerID
@@ -32,7 +31,7 @@ ORDER BY FirstName, LastName ASC
 -- Q3
 -- 15 rows
 
-SELECT CONCAT(FirstName, " ", LastName)
+SELECT CONCAT(FirstName, " ", LastName) As Name
 FROM
 player
 WHERE playerID NOT IN (
@@ -98,7 +97,7 @@ ORDER BY SCORE DESC
 
 -- Q8
 -- Arthur Dayley, 1183 days
-SELECT CONCAT(FirstName, " ",  LastName), DATEDIFF('2020/04/30', FromDate) as Duration
+SELECT CONCAT(FirstName, " ",  LastName) as Name, DATEDIFF('2020/04/30', FromDate) as Duration
 FROM club
 NATURAL JOIN clubplayer
 NATURAL JOIN player
