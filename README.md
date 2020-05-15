@@ -42,6 +42,7 @@ ORDER BY FirstName, LastName ASC
 ```
 
 ![](screenshots/2.png)
+
 73 rows returned
  
 
@@ -64,6 +65,7 @@ GROUP BY PlayerID, CompetitionType
 ```
 
 ![](screenshots/3.png)
+
 15 rows returned
  
 ### Q4: List the season year(s) with the highest number of cancelled games, and the corresponding number of cancelled games in the year(s). (2 marks)
@@ -77,6 +79,7 @@ GROUP BY SeasonYear
 ```
 
 ![](screenshots/4.png)
+
 2 rows returned
 
  
@@ -94,6 +97,7 @@ ORDER BY Difference DESC
 ```
 
 ![](screenshots/5.png)
+
 4 rows returned
 
  
@@ -110,6 +114,7 @@ HAVING SUM(SeasonYear LIKE 2018) < SUM(SeasonYear LIKE 2017)
 ```
 
 ![](screenshots/6.png)
+
 50 rows returned
  
 ### Q7: List the name of all teams that scored more than 100 points in the Bingham Trophy in 2017, along with the total points they scored. Order the result according to the points the team scored, highest scoring team first. (2 marks)
@@ -150,6 +155,7 @@ LIMIT 1
 ```
 
 ![](screenshots/8.png)
+
 1 rows returned
 
 
@@ -172,6 +178,7 @@ LIMIT 20
 ``` 
 
 ![](screenshots/9.png)
+
 20 rows returned
 
  
@@ -190,4 +197,5 @@ ORDER BY NumForfeits DESC
 ```
 
 ![](screenshots/10.png)
+
 3 rows returned
