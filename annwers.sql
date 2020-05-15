@@ -122,3 +122,15 @@ WHERE team.ClubID != club.ClubID
 GROUP BY FirstName, LastName
 ORDER BY NumberOfForeign DESC
 LIMIT 20
+
+-- Q10
+---
+SELECT TeamName, SeasonYear, COUNT(*) AS NumForfeits
+FROM team
+INNER JOIN game
+ON game.Team1 = team.TeamID OR game.Team2 = team.TeamID
+NATURAL JOIN season
+WHERE (T1Score = 0 AND T2Score = 28) OR (T1Score = 28 AND T2Score = 0)
+GROUP BY TeamName, SeasonYear
+HAVING NumForfeits >= 2
+ORDER BY NumForfeits DESC
