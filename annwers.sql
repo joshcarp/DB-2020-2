@@ -95,3 +95,15 @@ GROUP BY TeamName
 HAVING SCORE > 100
 ORDER BY SCORE DESC
 
+
+-- Q8
+-- Arthur Dayley, 1183 days
+SELECT CONCAT(FirstName, " ",  LastName), DATEDIFF('2020/04/30', FromDate) as Duration
+FROM club
+NATURAL JOIN clubplayer
+NATURAL JOIN player
+WHERE clubName LIKE "Melbourne City"
+AND ToDate is NULL
+GROUP BY FirstName, LastName, FromDate
+ORDER BY Duration ASC
+LIMIT 1
